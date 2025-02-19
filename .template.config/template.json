@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Gabriel Abreu",
+  "classifications": ["WebApi", "REST", "C#", "Template"],
+  "identity": "Skelly.WebApi",
+  "name": "Skelly .NET WebApi",
+  "shortName": "skelly-dotnet-webapi",
+  "sourceName": "Skelly.WebApi",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  }
+}

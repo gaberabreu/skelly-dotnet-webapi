@@ -1,0 +1,12 @@
+﻿global using System.Net;
+global using System.Text.Json;
+global using Bogus;
+global using MediatR;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.Diagnostics.HealthChecks;
+global using Microsoft.Extensions.Logging;
+global using Moq;
+global using Ossum.Results;
+global using Skelly.WebApi.Presentation.UnitTests.TestHelper.Extensions;
+global using Skelly.WebApi.Presentation.UnitTests.TestHelper.Fakers;

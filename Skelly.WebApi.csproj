@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageOutputPath>.</PackageOutputPath>
+		<PackageType>Template</PackageType>
+		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Package info">
+		<PackageId>Skelly.WebApi</PackageId>
+		<PackageDescription>A .NET Web API template with a ready-to-use setup.</PackageDescription>
+		<Authors>Gabriel Abreu (@gaberabreu)</Authors>
+		<PackageProjectUrl>https://github.com/gaberabreu/skelly-dotnet-webapi</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/gaberabreu/skelly-dotnet-webapi</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Version>$(Version)</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include=".template.config\**" Pack="true" PackagePath=".template.config\" />
+		<None Include=".github\workflows\**" Pack="true" PackagePath=".github\workflows\" />
+		<None Include="src\**" Pack="true" PackagePath="src\" />
+		<None Include="tests\**" Pack="true" PackagePath="tests\" />
+		<None Include="*.sln" Pack="true" PackagePath="\" />
+		<None Include=".dockerignore" Pack="true" PackagePath="\" />
+		<None Include=".gitignore" Pack="true" PackagePath="\" />
+		<None Include="LICENSE" Pack="true" PackagePath="\" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+		<None Include="docs\assets\Icon.png" Pack="true" PackagePath="\"/>
+		<None Remove="**\bin\**;**\obj\**" />
+	</ItemGroup>
+
+</Project>

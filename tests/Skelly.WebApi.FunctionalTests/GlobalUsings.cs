@@ -1,0 +1,9 @@
+﻿global using System.Net;
+global using System.Net.Http.Headers;
+global using System.Net.Http.Json;
+global using Bogus;
+global using Microsoft.AspNetCore.Mvc;
+global using Skelly.WebApi.FunctionalTests.TestHelper;
+global using Skelly.WebApi.FunctionalTests.TestHelper.Assertions;
+global using Skelly.WebApi.FunctionalTests.TestHelper.Fakers;
+global using Skelly.WebApi.FunctionalTests.TestHelper.Statics;

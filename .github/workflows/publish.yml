@@ -1,0 +1,37 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Set version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Build
+        run: dotnet build Skelly.WebApi.sln --configuration Release
+
+      - name: Test
+        run: dotnet test Skelly.WebApi.sln --configuration Release --no-build --no-restore
+
+      - name: Pack
+        run: dotnet pack Skelly.WebApi.csproj --output ./nupkgs /p:Version=${{ env.VERSION }}
+
+      - name: Publish
+        run: dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
